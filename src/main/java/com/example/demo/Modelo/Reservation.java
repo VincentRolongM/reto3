@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.demo.Modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,31 +12,31 @@ import javax.persistence.Table;
 
 /**
  *
- * @author IdeaPad
+ * @author USUARIO
  */
+
 @Entity
 @Table(name = "reservation")
+
 public class Reservation {
-    
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    
-    private Integer idReservation;
-    private Date starDate;
-    private Date devolutionDate;
-    private String status="create";
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private Integer idReservation;
+     private Date startDate;
+     private Date devolutionDate;
+     private String status = "created";
+     
     @ManyToOne
-    @JoinColumn(name="toolId")
+    @JoinColumn(name = "toolId")
     @JsonIgnoreProperties("reservations")
     private Tool tool;
     
     @ManyToOne
-    @JoinColumn(name="clientId")
+    @JoinColumn(name = "clientId")
     @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
     
-    private String score;
+     private String score;
 
     public Integer getIdReservation() {
         return idReservation;
@@ -51,12 +46,12 @@ public class Reservation {
         this.idReservation = idReservation;
     }
 
-    public Date getStarDate() {
-        return starDate;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStarDate(Date starDate) {
-        this.starDate = starDate;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
     public Date getDevolutionDate() {
@@ -98,7 +93,12 @@ public class Reservation {
     public void setScore(String score) {
         this.score = score;
     }
+     
+     
 
-    
-    
+   
+  
+     
+     
+     
 }
